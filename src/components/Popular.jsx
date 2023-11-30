@@ -39,11 +39,11 @@ function Popular() {
             <Splide
             options={
               {
-                perPage:4,
+                perPage:3,
                 arrows: false,
                 pagination: false,
                 drag:"free",
-                gap:"5rem",
+                gap:"3rem",
               }
             }
             >
@@ -71,8 +71,8 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  min-height: 25rem;
-  border-radius: 2rem;
+  min-height: 20rem;
+  border-radius: 1rem;
   overflow: hidden;
   position: relative;
   
