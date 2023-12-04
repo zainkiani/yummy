@@ -37,9 +37,7 @@ const List = styled.div`
     justify-content: center;
     margin-top: 2rem;
     
-    div{
-        margin: 2rem;
-    }
+    
 `;
 
 const SLink = styled(NavLink)`
@@ -48,7 +46,9 @@ const SLink = styled(NavLink)`
     justify-content:center;
     align-items:center;
     border-radius: 50%;
-    margin-right: 2rem;
+    margin:1rem;
+    /* margin-right: 1rem;
+    margin-left:1rem; */
     text-decoration: none;
     background: linear-gradient(35deg,#494949,#313131);
     width: 5rem;

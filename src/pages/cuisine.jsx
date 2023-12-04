@@ -42,14 +42,16 @@ function Cuisine() {
     <div>An error occured. Please try again.</div>
   }
 
-console.log(cuisine)
+
   return (
     <Grid>
       {cuisine.map((item)=>{
         return(
           <Card key={item.id}>
+            <Link to={"/recipe/" + item.id}>
             <img src={item.image}/>
             <h4>{item.title}</h4>
+            </Link>
           </Card>
         )
       })}

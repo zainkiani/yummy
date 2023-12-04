@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Splide,SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/splide/dist/css/splide.min.css";
+import { Link } from "react-router-dom";
 
 
 function Veggie() {
@@ -34,7 +35,7 @@ const getVeggie = async ()=>{
             options={
               {
                 perPage:4,
-                arrows: false,
+                arrows: true,
                 pagination: false,
                 drag:"free",
                 gap:"3rem",
@@ -44,11 +45,13 @@ const getVeggie = async ()=>{
             {veggie.map((recipe)=>{
               return(
                 <SplideSlide key={recipe.id}>
-                <Card>
-                  <p>{recipe.title}</p>
-                  <img src={recipe.image} alt={recipe.title} />
-                  <Gradient/>
-                </Card>
+                  <Card>
+                    <Link to={"/recipe/" + recipe.id}>
+                      <p>{recipe.title}</p>
+                      <img src={recipe.image} alt={recipe.title} />
+                      <Gradient/>
+                    </Link>
+                  </Card>
                 </SplideSlide>
               );
             })}
