@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 function Recipe() {
 
@@ -13,7 +14,9 @@ function Recipe() {
     const data =await fetch(`https://api.spoonacular.com/recipes/${params.name}/information?apiKey=${process.env.REACT_APP_API_KEY}`);
     const detailData = await data.json();
     setDetails(detailData);
+    
   };
+  
 
   useEffect(()=>{
     fetchDetails();
@@ -22,11 +25,16 @@ function Recipe() {
 
   return (
     
-    <Wrapper>
+    <Wrapper
+    animate = {{opacity:1}}
+    initial = {{opacity:0}}
+    exit = {{opacity:0}}
+    transition = {{duration: 0.6}}
+    >
       <div>
         <h2>{details.title}</h2>
         <img src={details.image} alt="" />
-        <p>And more stuff</p>
+        
       </div>
       <Info>
       <Button className={activeTab === "summary" ? "active" : ""} 
@@ -36,18 +44,30 @@ function Recipe() {
         <Button className={activeTab === "ingredients" ? "active" : ""} 
         onClick={()=>{setActiveTab("ingredients")}}>Ingredients</Button>
         
-        <div>
-        <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
-        <h3 dangerouslySetInnerHTML={{__html:details.instructions}}></h3>
-        <h3 dangerouslySetInnerHTML={{__html:details.ingredients}}></h3>
-        </div>
+        {activeTab === "summary" && (
+          <h3 dangerouslySetInnerHTML={{__html: details.summary}}></h3>
+        )}
+        {activeTab === "instructions" && (
+          <h3 dangerouslySetInnerHTML={{__html:details.instructions}}></h3>
+        )}
+        {activeTab === "ingredients" && (
+            <ul>
+            {details.extendedIngredients.map((ingredient,index)=>(
+              
+              <li key={index} >
+                {ingredient.original}
+              </li>
+            ))}
+          </ul>
+        )}
+        
         
       </Info>
     </Wrapper>
   )
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   margin-top: 5rem;
   margin-bottom:5rem;
   display: flex;
@@ -69,6 +89,7 @@ const Wrapper = styled.div`
   h3{
     font-size: 1.2rem;
   }
+  
 `;
 const Button = styled.button`
   padding: 1rem 2rem;
@@ -80,8 +101,10 @@ const Button = styled.button`
   margin-bottom: 2rem;
 `
 const Info = styled.div`
-  margin-left: 10rem;
+  margin-left: 4rem;
 `
+
+
 
 
 export default Recipe;

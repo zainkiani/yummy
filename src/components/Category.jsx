@@ -50,9 +50,9 @@ const SLink = styled(NavLink)`
     /* margin-right: 1rem;
     margin-left:1rem; */
     text-decoration: none;
-    background: linear-gradient(35deg,#494949,#313131);
-    width: 5rem;
-    height: 5rem;
+    background: linear-gradient(35deg,#114914,#ca0d0d);
+    width: 6rem;
+    height: 5.5rem;
     cursor: pointer;
     
 
