@@ -15,6 +15,7 @@ function App() {
         <GiKnifeFork/>
         <Logo to={"/"}>Yummyyy</Logo>
       </Nav>
+      
         <Search />
         <Category/>
         <Pages />

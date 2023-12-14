@@ -15,6 +15,7 @@ import { AnimatePresence } from "framer-motion";
         <Route path="/cuisine/:type" element= {<Cuisine/>}/>
         <Route path="/searched/:search" element = {<Searched/>}/>
         <Route path="/recipe/:name" element = {<Recipe/>}/>
+        <Route path="*" element={<Home/>}/>
     </Routes>
     </AnimatePresence>
   )
