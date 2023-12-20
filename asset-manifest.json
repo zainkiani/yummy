@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/yummy/static/css/main.bdd7fa07.css",
-    "main.js": "/yummy/static/js/main.d5d30aec.js",
+    "main.js": "/yummy/static/js/main.bba80513.js",
     "index.html": "/yummy/index.html",
     "main.bdd7fa07.css.map": "/yummy/static/css/main.bdd7fa07.css.map",
-    "main.d5d30aec.js.map": "/yummy/static/js/main.d5d30aec.js.map"
+    "main.bba80513.js.map": "/yummy/static/js/main.bba80513.js.map"
   },
   "entrypoints": [
     "static/css/main.bdd7fa07.css",
-    "static/js/main.d5d30aec.js"
+    "static/js/main.bba80513.js"
   ]
 }
